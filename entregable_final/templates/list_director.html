@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title%} Listado de Directores
+{% endblock%}
+
+
+{% block content%}
+
+    
+
+    <h1>Listado de Directores</h1>
+    <h2>Agregar nuevo director</h2> <a href="/movies/create-director/" class="btn btn-primary">Agregar!</a>
+
+
+    {% for director in directors %}
+
+        <div class="card" style="width: 18rem;">
+            <img src="https://www.queestudiar.org/wp-content/uploads/2018/11/director-750x350.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{director.name}}</h5>
+            <p class="card-text">Este director grabo  {{director.films}} peliculas</p>
+            
+            <a href="#" class="btn btn-primary">Ver detalles</a>
+            </div>
+        </div>
+
+    
+        
+    {% endfor %}
+
+    
+
+{% endblock%}

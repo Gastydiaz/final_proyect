@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title%} Listado peliculas
+{% endblock%}
+
+
+{% block content%}
+
+    
+
+    <h1>Listado de peliculas</h1>
+    <h2>Agregar nueva pelicula</h2> <a href="/movies/create-movies/" class="btn btn-primary">Agregar!</a>
+
+
+    {% for movie in movies %}
+
+        <div class="card" style="width: 18rem;">
+            <img src="https://lasciudadesinteligentes.com/wp-content/uploads/2018/04/las-peliculas-innovadoras-historias-cine-1-e1523001133756.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{movie.name}}</h5>
+            <p class="card-text">La pelicula es del genero: {{movie.type}}</p>
+            Tiene una duracion en hs de: {{movie.duration}}
+            <a href="#" class="btn btn-primary">Ver ahora!</a>
+            </div>
+        </div>
+
+    
+        
+    {% endfor %}
+
+    
+
+{% endblock%}
