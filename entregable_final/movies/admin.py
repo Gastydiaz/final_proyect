@@ -8,3 +8,4 @@ class MoviesAdmin(admin.ModelAdmin):
 #admin.site.register(Movies)
 admin.site.register(Studio)
 admin.site.register(Director)
+

@@ -2,10 +2,16 @@
 
 {% block title%} Inicio
 {% endblock%}
-
-
 {% block content%}
 
-<h1>Bienvenido al inicio</h1>
+<h1> Bienvenido al inicio del sitio!</h1>
+    
+    {% if message %}
+    <h2>{{message}}</h2>
+    {% endif %}
+<h3> Desde las pestañas vas a poder agregar tus peliculas,estudios y directores favoritos!</h3>
+<p>Para hacerlo ingresa a las pestañas correspondientes y si estas logueado te va a aparecer la opcion de agregar!
+    Espero disfrutes la pagina
+</p>
 
 {% endblock%}
