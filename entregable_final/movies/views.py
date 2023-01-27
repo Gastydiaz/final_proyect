@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from movies.models import Movies,Studio,Director
 from movies.forms import MoviesForm,StudioForm,DirectorForm
 
@@ -17,15 +16,17 @@ def create_movie(request):
         return render(request,'create_movies.html',context=context)
 
     elif request.method == 'POST':
-        form = MoviesForm(request.POST)
+        form = MoviesForm(request.POST, request.FILES)
         if form.is_valid():
             Movies.objects.create(
                 name=form.cleaned_data['name'],
                 type=form.cleaned_data['type'],
                 duration=form.cleaned_data['duration'],
+                picture = form.cleaned_data['picture'],
+                premiered = form.cleaned_data['premiered']
             )
             context = {
-                'message' : 'Pelicula creada existosamente'
+                'message' : 'Pelicula creada exitosamente'
             }
             return render(request,'create_movies.html',context=context)
         else:

@@ -15,10 +15,11 @@
     {% for director in directors %}
 
         <div class="card" style="width: 18rem;">
-            <img src="https://www.queestudiar.org/wp-content/uploads/2018/11/director-750x350.jpg" class="card-img-top" alt="...">
+            <img src="/media/{{director.photo}}" class="card-img-top" alt="...">
             <div class="card-body">
             <h5 class="card-title">{{director.name}}</h5>
             <p class="card-text">Este director grabo  {{director.films}} peliculas</p>
+            Nacio el {{director.birth}} y esta retirado? = {{director.retired}}
             
             <a href="https://www.google.com/search?q={{director.name}}" target="_blank" class="btn btn-primary">Buscar detalles en la red</a>
             </div>

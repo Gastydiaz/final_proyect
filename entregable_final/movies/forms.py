@@ -1,14 +1,19 @@
 from django import forms
-
+from movies.models import Movies
 class MoviesForm(forms.Form):
-    name = forms.CharField(max_length=100)
-    type = forms.CharField(max_length=100)
-    duration = forms.FloatField()
+    name = forms.CharField(max_length=100, label='Nombre')
+    type = forms.CharField(max_length=100, label='Genero')
+    duration = forms.FloatField( label='Duracion')
+    picture = forms.ImageField()
+    premiered = forms.BooleanField(label='Estrenada?')
+    class Meta:
+        model = Movies
+        fields = ['name','type','duration','picture','premiered']
 
 class StudioForm(forms.Form):
-    name = forms.CharField(max_length=100)
+    name = forms.CharField(max_length=100,label='Nombre')
 
 class DirectorForm(forms.Form):
-    name = forms.CharField(max_length=100)
-    films = forms.FloatField()
+    name = forms.CharField(max_length=100,label='Nombre')
+    films = forms.FloatField(label='Peliculas')
 

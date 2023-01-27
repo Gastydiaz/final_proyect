@@ -15,10 +15,11 @@
     {% for studio in studios %}
 
         <div class="card" style="width: 18rem;">
-            <img src="https://cdn-3.expansion.mx/dims4/default/a01888a/2147483647/strip/true/crop/5616x3744+0+0/resize/1200x800!/format/webp/quality/90/?url=https%3A%2F%2Fcdn-3.expansion.mx%2Fc3%2Fc0%2F6bd930ec48628e745939b6db3e34%2Fistock-483621103.jpg" class="card-img-top" alt="...">
+            <img src="/media/{{studio.image}}" class="card-img-top" alt="...">
             <div class="card-body">
             <h5 class="card-title">{{studio.name}}</h5>
             <p class="card-text">{{studio.name}} tiene muchas peliculas grabadas, que son un exito!</p>
+            Se fundo el: {{studio.creation}} y esta ubicada en {{studio.place}}. 
             
             <a href="https://www.google.com/search?q={{studio.name}}" target="_blank" class="btn btn-primary">Buscar detalles en la red</a>
             </div>
