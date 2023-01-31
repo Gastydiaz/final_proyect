@@ -1,10 +1,14 @@
 from django.shortcuts import render
-from movies.models import Movies,Studio,Director
-from movies.forms import MoviesForm,StudioForm,DirectorForm
+from movies.models import Movies,Studio,Director,Windows
+from movies.forms import MoviesForm,StudioForm,DirectorForm, WindowsForm
 
 
 def index(request):
-    return render(request, 'index.html', context={})
+    window =Windows.objects.filter(name__contains='index')
+    context = {
+        'window':window[0]
+    }
+    return render(request, 'index.html', context=context)
 
 
 def create_movie(request):
@@ -45,7 +49,6 @@ def list_movies(request):
         all_movies =Movies.objects.filter(name__contains=search)
     else:
         all_movies =Movies.objects.all() 
-    print(all_movies)
     context = {
         'movies':all_movies,
     }
@@ -126,3 +129,7 @@ def list_director(request):
         'directors':all_directors,
     }
     return render(request,'list_director.html',context=context)
+
+
+def about_me(request):
+    return render(request,'about_me.html',context={})

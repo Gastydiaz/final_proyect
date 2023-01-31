@@ -1,5 +1,5 @@
 from django.urls import path
-from movies.views import create_movie, list_movies, index,create_studio,list_studio,create_director, list_director
+from movies.views import create_movie, list_movies, index,create_studio,list_studio,create_director, list_director, about_me
 
 
 urlpatterns = [
@@ -10,5 +10,6 @@ urlpatterns = [
     path('list-studio/', list_studio),
     path('create-director/', create_director),
     path('list-director/', list_director),
+    path('about-me/', about_me)
 
     ] 

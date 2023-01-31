@@ -4,8 +4,8 @@ class Movies(models.Model):
     name = models.CharField(max_length=100, verbose_name='Nombre')
     type = models.CharField(max_length=100, verbose_name='Genero')
     duration = models.FloatField(verbose_name='Duracion')
-    picture = models.ImageField(upload_to='movie_images',null=True, blank=True)
-    premiered = models.BooleanField(verbose_name='Estrenada', default=True)
+    picture = models.ImageField(upload_to='movie_images',null=True, blank=True,verbose_name='Imagen')
+    premiered = models.BooleanField(verbose_name='Estrenada', default=True, blank=True)
     date = models.DateField(null=True, blank=True, verbose_name='Fecha de estreno')
 
 
@@ -34,3 +34,18 @@ class Director(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Windows(models.Model):
+    name =models.CharField(max_length=100, verbose_name='Nombre')
+    tittle = models.CharField(max_length=100, verbose_name='Titulo')
+    picture = models.ImageField(upload_to='index_image',null=True, blank=True)
+    text = models.CharField(max_length=10000, verbose_name='Contenido')
+    
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Window"
+        verbose_name_plural = "Windows"

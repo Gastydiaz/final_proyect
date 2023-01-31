@@ -3,15 +3,10 @@
 {% block title%} Inicio
 {% endblock%}
 {% block content%}
-
-<h1> Bienvenido al inicio del sitio!</h1>
+<img src="/media/{{window.picture}}" style="position:absolute; margin-top: 15%;  " alt="index_picture" width="65%" height="65%" >
+<h1 style="position: absolute; top: 100px; color: black"> {{window.tittle}}</h1>
     
-    {% if message %}
-    <h2>{{message}}</h2>
-    {% endif %}
-<h3> Desde las pestañas vas a poder ver tus peliculas, e investigar sobre tus estudios y directores favoritos!</h3>
-<p>Para hacerlo ingresa a las pestañas correspondientes y si estas logueado te va a aparecer la opcion deseada!
-    Espero disfrutes la pagina
+<p  style="position: absolute; top: 150px; color: black">{{window.text}}
 </p>
 
 {% endblock%}

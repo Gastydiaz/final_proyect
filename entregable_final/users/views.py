@@ -28,7 +28,7 @@ def login_view(request):
                 context = {
                     'message':f'Bienvenido {username}'
                 }
-                return render(request, 'index.html', context=context)
+                return redirect('index')
         form = AuthenticationForm()
         context= {
             'form': form,
