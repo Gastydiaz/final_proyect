@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from movies.models import Movies,Studio,Director,Windows
-from movies.forms import MoviesForm,StudioForm,DirectorForm, WindowsForm
+from movies.forms import MoviesForm,StudioForm,DirectorForm
 
 
 def index(request):
@@ -139,3 +139,6 @@ def list_director(request):
 
 def about_me(request):
     return render(request,'about_me.html',context={})
+
+
+
