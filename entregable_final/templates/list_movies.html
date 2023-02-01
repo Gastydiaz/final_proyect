@@ -8,19 +8,27 @@
 
     
 
-    <h1>Listado de peliculas</h1>
-    <h2>Agregar nueva pelicula</h2> <a href="/movies/create-movies/" class="btn btn-primary">Agregar!</a>
+    <h1 style="color: black; background-color: beige;">Listado de peliculas</h1>
+    <h4 style="color: black; background-color: beige;">Podes ver toda la informacion de las peliculas cargados o agregar las que quieras!</h4> <a href="/movies/create-movies/" class="btn btn-primary">Agregar!</a>
 
-    <div style="display: flex;flex-direction: row;margin:10px">
+    <div style="display: flex;flex-direction: row;margin:10px;">
         {% for movie in movies %}
 
         <div class="card" style="width: 18rem;flex: 1;margin:2px">
-            <img src="/media/{{movie.picture}}" class="card-img-top" alt="...">
+            <img src="/media/{{movie.picture}}"  width="300" height="300" class="card-img-top" alt="pelicula" >
             <div class="card-body">
             <h5 class="card-title">{{movie.name}}</h5>
             <p class="card-text">La pelicula es del genero: {{movie.type}}</p>
             Tiene una duracion en hs de: {{movie.duration}}
-            Estrenada el dia: {{movie.date}}
+                                    
+            {% if movie.premiered == True %}
+                <p>Estrenada el dia: {{movie.date}}</p>
+            {% else %}
+                <p>Aun no se estreno</p>
+            {% endif %}
+
+
+
             <a href="https://miradetodo.de/?s={{movie.name}}" target="_blank" class="btn btn-primary">Ver ahora!</a>
             </div>
         </div>

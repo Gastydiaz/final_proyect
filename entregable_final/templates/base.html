@@ -14,16 +14,16 @@
 
 </head>
 
-<body>
+<body style="background-image:url(https://media.wired.co.uk/photos/606d9ea06a2b7484dab92d37/master/w_1600%2Cc_limit/wired-movie-industry.jpg)">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
             <a class="navbar-brand" href="/">Inicio</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div  class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="/movies/list-movies/">Listado de peliculas </a>
@@ -31,7 +31,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/movies/list-studio/">Listado de Estudios</a>
                     </li>
-                    <li class="nav-item" style="margin-right: 400px;">
+                    <li class="nav-item" style="margin-right: 100px;">
                         <a class="nav-link" href="/movies/list-director/">Listado de Directores</a>
                     </li>
                     {% if request.user.is_authenticated %}
@@ -65,10 +65,11 @@
         </nav>
     </header>
     
-    {% block content%}
+    
+        {% block content%}
 
-    {% endblock%}
-
+        {% endblock%}
+    
 
 
 </body>

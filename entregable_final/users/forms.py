@@ -22,6 +22,10 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class UserProfileForm(forms.ModelForm):
+
+    phone = forms.FloatField(label='Telefono')
+    birth_date = forms.DateField(label='Fecha de nacimiento')
+    profile_picture = forms.ImageField(label='Foto de perfil')
     class Meta:
         model = UserProfile
         fields = ['phone', 'birth_date', 'profile_picture']

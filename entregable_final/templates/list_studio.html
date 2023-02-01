@@ -8,17 +8,17 @@
 
     
 
-    <h1>Listado de Estudios</h1>
-    <h2>Agregar nuevo estudio</h2> <a href="/movies/create-studio/" class="btn btn-primary">Agregar!</a>
+    <h1 style="color: black; background-color: beige;">Listado de Estudios</h1>
+    <h4 style="color: black; background-color: beige;">Podes ver toda la informacion de los estudios cargados o agregar los que quieras!</h4> <a href="/movies/create-studio/" class="btn btn-primary">Agregar!</a>
 
-
+    <div style="display: flex;flex-direction: row;margin:10px;">
     {% for studio in studios %}
 
-        <div class="card" style="width: 18rem;">
-            <img src="/media/{{studio.image}}" class="card-img-top" alt="...">
+        <div class="card" style="width: 18rem;flex: 1;margin:2px">
+            <img src="/media/{{studio.image}}" width="300" height="300" class="card-img-top" alt="...">
             <div class="card-body">
             <h5 class="card-title">{{studio.name}}</h5>
-            <p class="card-text">{{studio.name}} tiene muchas peliculas grabadas, que son un exito!</p>
+            <p class="card-text">{{studio.name}} es un estudio de grabacion</p>
             Se fundo el: {{studio.creation}} y esta ubicada en {{studio.place}}. 
             
             <a href="https://www.google.com/search?q={{studio.name}}" target="_blank" class="btn btn-primary">Buscar detalles en la red</a>
@@ -28,8 +28,8 @@
     
         
     {% endfor %}
-
-    {% block search%}/movies/list-studio/{% endblock%}
+    </div>
+    
 
 
 {% endblock%}

@@ -6,11 +6,11 @@
 
 {% block content%}
 
-<h1>Bienvenido a crear director</h1>
+<h1 style="color: black;background-color: beige;"> Bienvenido a crear director</h1>
 
     {% if form %}
 
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data" style="color: black;background-color: beige;">
 
             {% csrf_token %}
 

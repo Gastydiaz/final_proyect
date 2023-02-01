@@ -8,18 +8,23 @@
 
     
 
-    <h1>Listado de Directores</h1>
-    <h2>Agregar nuevo director</h2> <a href="/movies/create-director/" class="btn btn-primary">Agregar!</a>
+    <h1 style="color: black; background-color: beige;">Listado de Directores</h1>
+    <h4 style="color: black; background-color: beige;">Podes ver toda la informacion de los directores cargados o agregar los que quieras!</h4> <a href="/movies/create-director/" class="btn btn-primary">Agregar!</a>
 
-
+    <div style="display: flex;flex-direction: row;margin:10px;">
     {% for director in directors %}
 
-        <div class="card" style="width: 18rem;">
-            <img src="/media/{{director.photo}}" class="card-img-top" alt="...">
+        <div class="card" style="width: 18rem;flex: 1;margin:2px">
+            <img src="/media/{{director.photo}}" width="300" height="300" class="card-img-top" alt="Directores">
             <div class="card-body">
             <h5 class="card-title">{{director.name}}</h5>
             <p class="card-text">Este director grabo  {{director.films}} peliculas</p>
-            Nacio el {{director.birth}} y esta retirado? = {{director.retired}}
+            Nacio el {{director.birth}}
+            {% if director.retired == True %}
+                <p>Actualmente esta retirado</p>
+            {% else %}
+                <p>Actualmente sigue trabajando</p>
+            {% endif %}
             
             <a href="https://www.google.com/search?q={{director.name}}" target="_blank" class="btn btn-primary">Buscar detalles en la red</a>
             </div>
@@ -28,6 +33,7 @@
     
         
     {% endfor %}
+    </div>
 
     
 

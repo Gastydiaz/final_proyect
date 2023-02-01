@@ -64,10 +64,14 @@ def create_studio(request):
         return render(request,'create_studios.html', context=context)
 
     elif request.method == 'POST':
-        form = StudioForm(request.POST)
+        form = StudioForm(request.POST, request.FILES)
         if form.is_valid():
             Studio.objects.create(
                 name=form.cleaned_data['name'],
+                creation=form.cleaned_data['creation'],
+                place=form.cleaned_data['place'],
+                image = form.cleaned_data['image'],
+                
             )
             context = {
                 'message' : 'Estudio creado exitosamente'
@@ -101,11 +105,14 @@ def create_director(request):
         return render(request,'create_director.html',context=context)
 
     elif request.method == 'POST':
-        form = DirectorForm(request.POST)
+        form = DirectorForm(request.POST, request.FILES)
         if form.is_valid():
             Director.objects.create(
                 name=form.cleaned_data['name'],
                 films=form.cleaned_data['films'],
+                birth=form.cleaned_data['birth'],
+                photo=form.cleaned_data['photo'],
+                retired=form.cleaned_data['retired'],
             )
             context = {
                 'message' : 'Director creado exitosamente'
@@ -124,7 +131,6 @@ def list_director(request):
         all_directors =Director.objects.filter(name__icontains=search)
     else:
         all_directors =Director.objects.all() 
-    
     context = {
         'directors':all_directors,
     }
