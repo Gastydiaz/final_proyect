@@ -82,7 +82,7 @@ def movie_update(request, pk):
             movie.name = form.cleaned_data['name']
             movie.type = form.cleaned_data['type']
             movie.duration = form.cleaned_data['duration']
-            movie.picture = form.cleaned_data['picture']
+            movie.picture = form.cleaned_data['picture'] or movie.picture
             movie.premiered = form.cleaned_data['premiered']
             movie.date = form.cleaned_data['date']
             movie.save()
@@ -173,7 +173,7 @@ def studio_update(request, pk):
             studio.name = form.cleaned_data['name']
             studio.creation = form.cleaned_data['creation']
             studio.place = form.cleaned_data['place']
-            studio.image = form.cleaned_data['image']
+            studio.image = form.cleaned_data['image'] or studio.image
             studio.save()
             
             context = {
@@ -259,7 +259,7 @@ def director_update(request, pk):
             director.name = form.cleaned_data['name']
             director.films = form.cleaned_data['films']
             director.birth = form.cleaned_data['birth']
-            director.photo = form.cleaned_data['photo']
+            director.photo = form.cleaned_data['photo'] or director.photo
             director.retired = form.cleaned_data['retired']
             director.save()
             

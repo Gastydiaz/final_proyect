@@ -10,7 +10,7 @@ class Movies(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return f"{self.name} - {self.picture}"
 
     class Meta:
         verbose_name = "Movie"
