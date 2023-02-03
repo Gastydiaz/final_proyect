@@ -25,7 +25,10 @@
             {% else %}
                 <p>Actualmente sigue trabajando</p>
             {% endif %}
-            
+            <br><br>
+            <a href="/movies/director-update/{{director.id}}/" class="btn btn-primary">Actualizar</a>
+            <a href="/movies/director-delete/{{director.id}}/" class="btn btn-danger">Borrar</a>
+            <br><br>
             <a href="https://www.google.com/search?q={{director.name}}" target="_blank" class="btn btn-primary">Buscar detalles en la red</a>
             </div>
         </div>

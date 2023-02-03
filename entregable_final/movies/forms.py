@@ -4,8 +4,9 @@ class MoviesForm(forms.Form):
     name = forms.CharField(max_length=100, label='Nombre')
     type = forms.CharField(max_length=100, label='Genero')
     duration = forms.FloatField( label='Duracion')
-    picture = forms.ImageField(label='Imagen')
+    picture = forms.ImageField(label='Imagen',required=False)
     premiered = forms.BooleanField(label='Estrenada', required=False)
+    date = forms.DateField(label='Fecha de estreno',required=False)
     class Meta:
         model = Movies
         fields = ['name','type','duration','picture','premiered']
@@ -14,7 +15,7 @@ class StudioForm(forms.Form):
     name = forms.CharField(max_length=100,label='Nombre')
     creation = forms.DateField(label='Fecha de creacion')
     place = forms.CharField(max_length=100,label='Ubicacion')
-    image = forms.ImageField(label='Imagen')
+    image = forms.ImageField(label='Imagen',required=False)
     class Meta:
         model = Studio
         fields = ['name','creation','place','image']
@@ -23,7 +24,7 @@ class DirectorForm(forms.Form):
     name = forms.CharField(max_length=100,label='Nombre')
     films = forms.FloatField(label='Peliculas')
     birth= forms.DateField(label='Fecha de nacimiento')
-    photo= forms.ImageField(label='Foto')
+    photo= forms.ImageField(label='Foto',required=False)
     retired=forms.BooleanField(label='Retirado', required=False)
     class Meta:
         model = Director

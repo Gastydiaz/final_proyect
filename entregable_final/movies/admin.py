@@ -4,7 +4,7 @@ from movies.models import Movies,Studio,Director,Windows
 
 @admin.register(Movies)
 class MoviesAdmin(admin.ModelAdmin):
-    list_display= ('name', 'type', 'duration', 'date')
+    list_display= ('name', 'type', 'duration', 'date','picture')
 
 @admin.register(Studio)
 class StudioAdmin(admin.ModelAdmin):

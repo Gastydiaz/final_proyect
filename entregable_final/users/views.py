@@ -64,7 +64,6 @@ def update_user(request):
     user = request.user
     if request.method == 'GET':
         form = UserUpdateForm(initial = {
-            'username': user.username,
             'first_name': user.first_name,
             'last_name': user.last_name
 
@@ -78,7 +77,6 @@ def update_user(request):
     elif request.method == 'POST':
         form = UserUpdateForm(request.POST)
         if form.is_valid():
-            user.username = form.cleaned_data.get('username')
             user.first_name = form.cleaned_data.get('first_name')
             user.last_name = form.cleaned_data.get('last_name')
             user.save()
@@ -106,7 +104,7 @@ def update_user_profile(request):
 
 
     elif request.method == 'POST':
-        form = UserProfileForm(request.POST, request.FILES)
+        form = UserProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if form.is_valid():
             user.profile.phone = form.cleaned_data.get('phone')
             user.profile.birth_date = form.cleaned_data.get('birth_date')

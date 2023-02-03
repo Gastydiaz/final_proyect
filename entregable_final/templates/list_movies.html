@@ -15,7 +15,9 @@
         {% for movie in movies %}
 
         <div class="card" style="width: 18rem;flex: 1;margin:2px">
-            <img src="/media/{{movie.picture}}"  width="300" height="300" class="card-img-top" alt="pelicula" >
+            {% if movie.picture %}
+            <img src="{{movie.picture.url}}"  width="300" height="300" class="card-img-top" alt="pelicula" >
+            {% endif %}
             <div class="card-body">
             <h5 class="card-title">{{movie.name}}</h5>
             <p class="card-text">La pelicula es del genero: {{movie.type}}</p>
@@ -27,8 +29,10 @@
                 <p>Aun no se estreno</p>
             {% endif %}
 
-
-
+            <br><br>
+            <a href="/movies/movies-update/{{movie.id}}/" class="btn btn-primary">Actualizar</a>
+            <a href="/movies/movies-delete/{{movie.id}}/" class="btn btn-danger">Borrar</a>
+            <br><br>
             <a href="https://miradetodo.de/?s={{movie.name}}" target="_blank" class="btn btn-primary">Ver ahora!</a>
             </div>
         </div>
