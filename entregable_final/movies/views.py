@@ -2,6 +2,7 @@ from django.shortcuts import render
 from movies.models import Movies,Studio,Director,Windows
 from movies.forms import MoviesForm,StudioForm,DirectorForm
 from django.views.generic import DeleteView
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -56,7 +57,7 @@ def list_movies(request):
     }
     return render(request,'list_movies.html',context=context)
 
-
+@login_required
 def movie_update(request, pk):
     movie = Movies.objects.get(id=pk)
 
@@ -148,7 +149,7 @@ def list_studio(request):
     }
     return render(request,'list_studio.html',context=context)
 
-
+@login_required
 def studio_update(request, pk):
     studio = Studio.objects.get(id=pk)
 
@@ -233,7 +234,7 @@ def list_director(request):
     }
     return render(request,'list_director.html',context=context)
 
-
+@login_required
 def director_update(request, pk):
     director = Director.objects.get(id=pk)
 
